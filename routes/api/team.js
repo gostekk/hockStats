@@ -109,4 +109,16 @@ router.post("/:team_id", (req, res) => {
   });
 });
 
+///////////////////////////////////////
+/////          DELETE             ////
+/////////////////////////////////////
+
+// @route   DELETE api/team/:team_id
+// @desc    Delete team
+router.delete("/:team_id", (req, res) => {
+  Team.findOneAndRemove({ _id: req.params.team_id }).then(() => {
+    res.json({ success: true });
+  });
+});
+
 module.exports = router;
