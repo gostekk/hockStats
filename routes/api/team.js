@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
   if (req.body.defAwayUniform)
     teamFields.defAwayUniform = req.body.defAwayUniform;
 
-  Team.findOne({ name: req.name }).then(team => {
+  Team.findOne({ name: req.body.name }).then(team => {
     if (team) {
       // Update team
       Team.findOneAndUpdate(
@@ -36,6 +36,7 @@ router.post("/", (req, res) => {
         { new: true }
       ).then(team => res.json(team));
     } else {
+      console.log("False team: ", team);
       // Create team
       new Team(teamFields).save().then(team => {
         res.json(team);
