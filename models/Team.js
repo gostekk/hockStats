@@ -5,8 +5,7 @@ const Schema = mongoose.Schema;
 var TeamSchema = new Schema({
   name: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   level: {
     type: String,
