@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const config = require("./config/keys");
 
 const team = require("./routes/api/team");
+const player = require("./routes/api/player");
 
 const app = express();
 
@@ -22,6 +23,7 @@ mongoose
 
 // Routes
 app.use("/api/team", team);
+app.use("/api/player", player);
 
 app.listen(config.port, () =>
   console.log(`Server running on port ${config.port}`)
