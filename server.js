@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const config = require("./config/keys");
 
+const team = require("./routes/api/team");
+
 const app = express();
 
 // Body parser
@@ -17,6 +19,9 @@ mongoose
   .connect(db)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
+
+// Routes
+app.use("/api/team", team);
 
 app.listen(config.port, () =>
   console.log(`Server running on port ${config.port}`)
