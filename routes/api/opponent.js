@@ -27,6 +27,24 @@ router.get("/all", (req, res) => {
     .catch(err => res.status(404).json({ opponent: "There are no opponents" }));
 });
 
+// @route   GET api/opponent/team/:team_id
+// @desc    Get all opponents of specific team
+router.get("/team/:team_id", (req, res) => {
+  const errors = {};
+  Opponent.find({ team: req.params.team_id })
+    .then(opponent => {
+      if (!opponent) {
+        errors.noopponent = "There are no opponents for this team";
+        return res.status(404).json(errors);
+      }
+
+      res.json(opponent);
+    })
+    .catch(err =>
+      res.status(404).json({ opponent: "There are no opponents for this team" })
+    );
+});
+
 // @route   GET api/opponent/:opponent_id
 // @desc    Get opponent by ID
 router.get("/:opponent_id", (req, res) => {
