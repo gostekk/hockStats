@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const OpponentSchema = new Schema({
   team: {
     type: Schema.Types.ObjectId,
-    ref: "teams"
+    ref: "teams",
+    required: true
   },
   name: {
     type: String,
