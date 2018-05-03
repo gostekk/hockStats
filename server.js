@@ -7,6 +7,7 @@ const team = require("./routes/api/team");
 const location = require("./routes/api/location");
 const opponent = require("./routes/api/opponent");
 const player = require("./routes/api/player");
+const league = require("./routes/api/league");
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use("/api/team", team);
 app.use("/api/location", location);
 app.use("/api/opponent", opponent);
 app.use("/api/player", player);
+app.use("/api/league", league);
 
 app.listen(config.port, () =>
   console.log(`Server running on port ${config.port}`)
