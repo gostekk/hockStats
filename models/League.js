@@ -23,9 +23,11 @@ const LeagueSchema = new Schema({
   },
   roster: [
     {
+      _id: false,
       player: {
         type: Schema.Types.ObjectId,
-        ref: "players"
+        ref: "players",
+        index: true
       }
     }
   ],
