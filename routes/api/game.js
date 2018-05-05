@@ -31,7 +31,7 @@ router.get("/all", (req, res) => {
     .catch(err => res.status(404).json({ game: "There are no games" }));
 });
 
-// @route   GET api/game/team/:team_id
+// @route   GET api/game/league/:league_id
 // @desc    Get all games of specific leagues
 router.get("/league/:league_id", (req, res) => {
   const errors = {};

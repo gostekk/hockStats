@@ -115,6 +115,7 @@ router.post("/:team_id", (req, res) => {
 
 // @route   DELETE api/team/:team_id
 // @desc    Delete team
+// @todo    Delete leagues/games/opponents attached to this league=
 router.delete("/:team_id", (req, res) => {
   Team.findOneAndRemove({ _id: req.params.team_id }).then(() => {
     res.json({ success: true });

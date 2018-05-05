@@ -9,6 +9,10 @@ const validateRosterInput = require("../../validation/roster");
 const League = require("../../models/League");
 // Load Player model
 const Player = require("../../models/Player");
+// Load Opponent model
+const Opponent = require("../../models/Opponent");
+// Load Game model
+const Game = require("../../models/Game");
 
 ///////////////////////////////////////
 /////            GET              ////
@@ -236,6 +240,7 @@ router.delete("/roster/:league_id", (req, res) => {
 
 // @route   DELETE api/league/:league_id
 // @desc    Delete league
+// @todo    Delete games/opponents attached to this league
 router.delete("/:league_id", (req, res) => {
   League.findOneAndRemove({ _id: req.params.league_id }).then(() => {
     res.json({ success: true });

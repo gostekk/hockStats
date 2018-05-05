@@ -143,6 +143,7 @@ router.post("/:opponent_id", (req, res) => {
 
 // @route   DELETE api/opponent/:opponent_id
 // @desc    Delete opponent
+// @todo    Check if opponent is used in any game. If true stop| false delete
 router.delete("/:opponent_id", (req, res) => {
   Opponent.findOneAndRemove({ _id: req.params.opponent_id }).then(() => {
     res.json({ success: true });
