@@ -17,7 +17,7 @@ module.exports = function validateLeagueInput(data) {
     errors.name = "League name is required";
   }
 
-  if (Validator.isUUID(data.team)) {
+  if (!Validator.isMongoId(data.team)) {
     errors.team = "Team ID is invalid";
   }
 

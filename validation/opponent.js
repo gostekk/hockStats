@@ -21,7 +21,7 @@ module.exports = function validateOpponentInput(data) {
     errors.name = "Opponent name is required";
   }
 
-  if (Validator.isUUID(data.team)) {
+  if (!Validator.isMongoId(data.team)) {
     errors.team = "Team ID is invalid";
   }
 

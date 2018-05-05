@@ -1,7 +1,7 @@
 const Validator = require("validator");
 const isEmpty = require("./is-empty");
 
-module.exports = function validateTeamInput(data) {
+module.exports = function validatePlayerInput(data) {
   let errors = {};
 
   data.firstName = !isEmpty(data.firstName) ? data.firstName : "";
